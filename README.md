@@ -53,5 +53,7 @@ Bu projeyi özelleştirmek isteyenler için bazı ipuçları:
 
 ## 🧪 Devre Şeması
 
-📷 Aşağıdaki görselde projenin basit devre bağlantısını görebilirsiniz:  
-_(dosya: `donanim/devre_semasi.png`)_
+Aşağıdaki görselde projenin basit devre bağlantısını görebilirsiniz:
+
+![Devre Şeması](donanim/devre_semasi.png)
+
