@@ -1,16 +1,31 @@
 
-# Kutu Hafıza Oyunu
+# 🧠 Kutu Hafıza Oyunu
 
-Bu proje, basit ama eğlenceli bir **hafıza oyunu** tasarımıdır. 1 adet NeoPixel LED, 4 buton ve Arduino Nano kullanılarak yapılmıştır. Oyunda LED renkleri sırayla yanar, kullanıcı bu sıralamayı hatırlayıp doğru butonlara basmalıdır. Seviye ilerledikçe sıra uzar, hata yapılırsa can kaybedilir.
+Kendi LED ve butonlardan oluşan sade ama eğlenceli bir hafıza oyunu yapmak ister misiniz? Bu projede ihtiyacınız olan her şey mevcut: Kodlar, 3D baskı dosyaları, devre şeması ve örnek video!
 
-## Proje Klasör Yapısı
+## 🎮 Oyun Nasıl Çalışır?
+
+- 8 adet NeoPixel LED, 4 buton ve 1 buzzer kullanarak klasik "sıra tekrar et" mantığında bir hafıza oyunu oluşturduk.
+- Her seviye giderek zorlaşır ve hata yaparsanız canınız azalır.
+- Işık ve ses efektleriyle hem görsel hem işitsel olarak sizi uyarır.
+
+## 🧩 Donanım Gereksinimleri
+
+- 1x Arduino Nano
+- 1x NeoPixel (8 LED’li tek şerit)
+- 4x Buton
+- 1x Buzzer
+- 1x Breadboard ve bağlantı kabloları
+- Direnç (opsiyonel)
+
+## 🔧 Dosya Yapısı
 
 ```
 📁 kutu-hafiza-oyunu
 ├── 📁 donanim
 │   ├── kutu_modeli.stl
 │   ├── tus_kapagi.stl
-│   └── devre_semasi.jpg/png
+│   └── devre_semasi.jpg
 ├── 📁 yazilim
 │   └── hafiza-oyunu.ino
 ├── 📁 gorsel
@@ -18,36 +33,25 @@ Bu proje, basit ama eğlenceli bir **hafıza oyunu** tasarımıdır. 1 adet NeoP
 └── README.md
 ```
 
-## Kullanılan Malzemeler
+## 📺 Tanıtım ve Yapım Videosu
 
-- Arduino Nano
-- 1x NeoPixel LED
-- 4x Buton
-- 3D Baskı kutu ve tuş kapakları
-- Breadboard ve jumper kablolar
-- Opsiyonel: 220Ω direnç (NeoPixel için)
+Projeyi nasıl yaptığımı detaylıca anlattığım videoyu buradan izleyebilirsiniz:
 
-## Nasıl Çalışır?
+🔗 [YouTube Videosu – Kutu Hafıza Oyunu](https://youtube.com/link-gelecek)
 
-1. LED’ler sırayla yanar (örneğin: kırmızı → mavi → sarı).
-2. Oyuncu aynı sırayla butonlara basar.
-3. Doğru ise seviye artar, yanlış ise can azalır.
-4. Tüm canlar biterse oyun sıfırlanır.
+## 🛠️ Kendi Versiyonunu Yapmak İstersen...
 
-## Özelleştirme Önerileri
+Bu projeyi özelleştirmek isteyenler için bazı ipuçları:
 
-Aşağıdaki satırları değiştirerek projeyi kendinize göre özelleştirebilirsiniz:
+| Özelleştirme        | Nasıl Yapılır                                      |
+|---------------------|----------------------------------------------------|
+| 🔊 Farklı sesler     | `TONES[]` dizisini değiştirin                      |
+| 💡 Farklı renkler    | `COLORS[]` içinde RGB değerlerini ayarlayın        |
+| 🔁 Level başında uyarı | `SHOW_EACH_LEVEL` değerini `1` yapın              |
+| 🎨 Daha fazla LED    | `NUM_LEDS` ve `playStep()` içinde LED ayarlarını güncelleyin |
+| 🎮 Buton sayısını artırmak | Kodun `BTN_PINS[]` ve `readButton()` fonksiyonları uyarlanmalı |
 
-```cpp
-uint8_t BRIGHTNESS = 40;         // LED parlaklığı
-uint16_t stepShowMs = 260;       // LED yanma süresi
-uint16_t stepGapMs = 140;        // LED'ler arası bekleme
-int TONES[4] = {262, 330, 392, 523}; // Ses tonları
-#define SHOW_EACH_LEVEL 0        // Her seviyede uyarı istiyorsanız 1 yapın
-```
+## 🧪 Devre Şeması
 
-Örneğin, oyun daha hızlı ilerlesin isterseniz `stepShowMs` değerini 200 yapabilirsiniz.
-
-## Lisans
-
-MIT Lisansı ile yayınlanmıştır. Eğitimsel amaçlarla kullanabilirsiniz.
+📷 Aşağıdaki görselde projenin basit devre bağlantısını görebilirsiniz:  
+_(dosya: `donanim/devre_semasi.jpg`)_
